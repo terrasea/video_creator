@@ -59,7 +59,6 @@ class VideoCreator extends PolymerElement {
         completer.complete();
       }).asFuture();
       image.src = event.target.result;
-      document.body.append(image);
     }).asFuture();
     reader.readAsDataUrl(frame.image);
 
