@@ -6,7 +6,7 @@ homepage: https://github.com/terrasea/video_creator
 environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
-  polymer: any
+  polymer: '>=0.15.5 <0.16.0'
 dev_dependencies:
   browser: any
   scheduled_test: any
