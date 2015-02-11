@@ -6,7 +6,6 @@ homepage: https://github.com/terrasea/video_creator
 environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
-  bwu_datagrid: any
   polymer: any
 dev_dependencies:
   browser: any
