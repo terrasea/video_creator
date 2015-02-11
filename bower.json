@@ -1,0 +1,19 @@
+{
+  "name": "video_creator",
+  "version": "0.0.0",
+  "authors": [
+    "James Hurford <terrasea@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib/src",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "whammy": "*"
+  }
+}
