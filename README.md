@@ -1,6 +1,6 @@
 # video_creator
 
-An element for creating slideshow videos from a set of images, with cations.
+An element for creating slideshow videos from a set of images, with captions.
 
 ## Usage
 
