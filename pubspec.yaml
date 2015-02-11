@@ -2,6 +2,9 @@ name: video_creator
 version: 0.0.1
 author: James Hurford <terrasea@gmail.com>
 description: A polymer element to create a simple video from a series of images
+homepage: https://github.com/terrasea/video_creator
+environment:
+  sdk: '>=1.0.0 <2.0.0'
 dependencies:
   bwu_datagrid: any
   polymer: any
@@ -11,5 +14,5 @@ dev_dependencies:
 transformers:
 - polymer:
     entry_points:
-      - example/index.html
-      - test/index.html
+    - example/index.html
+    - test/index.html
