@@ -7,6 +7,7 @@ import 'dart:html';
 import 'dart:async';
 
 import 'package:polymer/polymer.dart';
+import 'package:unittest/html_config.dart';
 import 'package:scheduled_test/scheduled_test.dart';
 
 
@@ -14,6 +15,7 @@ import 'package:video_creator/video_creator.dart';
 import 'package:video_creator/src/frame.dart';
 
 main() {
+  useHtmlConfiguration();
   initPolymer();
 
   group('[video-creator]', () {
