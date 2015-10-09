@@ -1,28 +1,24 @@
+@HtmlImport('video_creator.html')
+library video_creator.video_creator;
+
 import 'dart:html';
 import 'dart:async';
 import 'dart:js' as js;
 
 import 'package:polymer/polymer.dart';
+import 'package:web_components/web_components.dart';
 
 import 'src/frame.dart';
 
-@CustomTag('video-creator')
+@PolymerRegister('video-creator')
 class VideoCreator extends PolymerElement {
-  @PublishedProperty(reflect: true)
-  List<Frame> get frames => readValue(#frames);
-  void set frames(val) => writeValue(#frames, val);
+  @Property(notify: true, observer: 'framesChanged')  List<Frame> frames;
 
-  @PublishedProperty(reflect: true)
-  int get width => readValue(#width) != null ? readValue(#width) : 300;
-  void set width(val) => writeValue(#width, val);
+  @property int width = 300;
 
-  @PublishedProperty(reflect: true)
-  int get height => readValue(#height) != null ? readValue(#height) : 300;
-  void set height(val) => writeValue(#height, val);
+  @property int height = 300;
 
-  @PublishedProperty(reflect: true)
-  int get captionHeight => readValue(#captionHeight) != null ? readValue(#captionHeight) : 50;
-  void set cationHeight(val) => writeValue(#captionHeight, val);
+  @property int captionHeight = 50;
 
   CanvasElement _canvas;
   js.JsObject _videoWhammy;
@@ -65,7 +61,8 @@ class VideoCreator extends PolymerElement {
     return completer.future;
   }
 
-  void framesChanged(old, current) {
+  @Observe('frames')
+  void framesChanged([_, __]) {
     if(frames.length > 0) {
       _processImages().then((_) {
         var video = _videoWhammy.callMethod('compile');
