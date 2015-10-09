@@ -72,5 +72,32 @@ void video_creator_test() {
         expect(durationCompleter.future, completes);
       });
     });
+
+    test('encodeFrames fires encode-complete and video is created', () async {
+      var completer = new Completer<Blob>();
+      creator.on['encode-complete'].first.then((e) {
+        completer.complete(e.detail);
+      });
+      List<Blob> blobList = [await getImage('img/img01.png'), await getImage('img/img02.png')];
+      List<Frame> frames = blobList.map((blob) => new MyFrame(blob, "Caption", 2000)).toList();
+
+      creator.encodeFrames(frames);
+
+      var durationCompleter = new Completer<double>();
+      completer.future.then((blob) {
+        expect(blob is Blob, isTrue);
+        VideoElement video = new VideoElement()
+          ..src = Url.createObjectUrl(blob)
+          ..onDurationChange.listen((e) {
+          durationCompleter.complete(e.target.duration);
+        });
+        expect(completer.future, completes);
+
+        durationCompleter.future.then((duration) {
+          expect(duration, 4.0);
+        });
+        expect(durationCompleter.future, completes);
+      });
+    });
   });
 }

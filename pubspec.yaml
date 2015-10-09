@@ -21,6 +21,7 @@ transformers:
 - reflectable:
     entry_points:
     - test/test.dart
+    - example/main.dart
 - test/pub_serve:
     $include: test/test.dart
 - $dart2js:

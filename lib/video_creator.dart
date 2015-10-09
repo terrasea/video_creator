@@ -80,4 +80,8 @@ class VideoCreator extends PolymerElement {
 
     return Future.wait(futures);
   }
+
+  void encodeFrames(List<Frame> frames) {
+    set('frames', frames);
+  }
 }
